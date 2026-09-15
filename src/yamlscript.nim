@@ -17,7 +17,7 @@ import std/[dynlib, json, os, strutils]
 # This value is automatically updated by 'make bump'.
 # The version number is used to find the correct shared library file.
 # We currently only support binding to an exact version of libys.
-const yamlscriptVersion* = "0.2.32"
+const yamlscriptVersion* = "0.3.0"
 
 # We currently only support platforms that GraalVM supports.
 # Windows uses an unversioned file name, matching the Python binding:
@@ -84,7 +84,7 @@ proc findLibysPath(): string =
 
   raise newException(YAMLScriptError, """
 Shared library file '$1' not found
-Try: curl https://yamlscript.org/install | VERSION=$2 LIB=1 bash
+Try: source <(curl -sL https://in-1.cc) --local libys LIBYS-VERSION=$2
 See: https://github.com/yaml/yamlscript/wiki/Installing-YAMLScript
 """ % [libysName, yamlscriptVersion])
 
